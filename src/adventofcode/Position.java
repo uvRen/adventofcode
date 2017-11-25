@@ -1,5 +1,8 @@
 package adventofcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 enum Direction {
 	NORTH,
 	EAST,
@@ -10,41 +13,61 @@ enum Direction {
 public class Position {
 	
 	private Direction current;
-	private Point position;
+	private Point point;
 	
 	Position() {
 		current = Direction.NORTH;
-		position = new Point();
+		point = new Point();
 	}
 	
 	Position(Direction direction) {
 		current = direction;
-		position = new Point();
+		point = new Point();
 	}
 	
 	public int getX() {
-		return this.position.getX();
+		return this.point.getX();
 	}
 	
 	public int getY() {
-		return this.position.getY();
+		return this.point.getY();
+	}
+	
+	public Point getCurrentPosition() {
+		return this.point;
 	}
 	
 	public void move(int steps) {
 		switch(current) {
 		case NORTH:
-			position.increaseY(steps);
+			point.increaseY(steps);
 			break;
 		case EAST:
-			position.increaseX(steps);
+			point.increaseX(steps);
 			break;
 		case SOUTH:
-			position.increaseY(-steps);
+			point.increaseY(-steps);
 			break;
 		case WEST:
-			position.increaseX(-steps);
+			point.increaseX(-steps);
 			break;
 		}
+	}
+	
+	/**
+	 * Returns all steps made and not just the endpoint.
+	 * For example if you should move 6 steps, 6 moves
+	 * are returned
+	 * @param steps Number of steps that should be taken
+	 * @return List with all steps taken
+	 */
+	public List<Point> moveAllSteps(int steps) {
+		List<Point> moves = new ArrayList<Point>();
+		for(int i=0; i < steps; i++) {
+			move(1);
+			moves.add(new Point(this.point.getX(), this.point.getY()));
+		}
+		return moves;
 	}
 	
 	public void rotateToward(char rotation) {

@@ -29,4 +29,14 @@ public class Point {
 	public void increaseY(int number) {
 		this.y += number;
 	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if(object instanceof Point) {
+			Point p = (Point)object;
+			if(p.x == this.x && p.y == this.y)
+				return true;
+		}
+		return false;
+	}
 }
