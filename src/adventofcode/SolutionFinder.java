@@ -1,7 +1,9 @@
 package adventofcode;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class SolutionFinder {
 	public static int solveDay1Task1() {
@@ -19,7 +21,7 @@ public class SolutionFinder {
 	
 	public static int solveDay1Task2() {
 		String fileContent 			= FileHandler.getContentOfFile("Inputs/Day1/input.txt");
-		List<Point> visited    = new ArrayList<Point>();
+		List<Point> visited    		= new ArrayList<Point>();
 		List<Point> moves 			= new ArrayList<Point>();
 		String[] movements 			= fileContent.split(", ");
 		Point found 				= null;
@@ -44,4 +46,15 @@ public class SolutionFinder {
 		
 		return Math.abs(found.getX()) + Math.abs(found.getY());
 	}
+	
+	public static String solveDay2Task1() {
+		List<String> rows = FileHandler.getEachRowFromFile("Inputs/Day2/input.txt");
+		KeyPad keypad = new KeyPad();
+		String code = "";
+		for(String row : rows) {
+			code += keypad.move(row);
+		}
+		return code;
+	}
+
 }
