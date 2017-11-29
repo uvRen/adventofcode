@@ -1,16 +1,14 @@
 package adventofcode;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class SolutionFinder {
 	public static int solveDay1Task1() {
 		String fileContent = FileHandler.getContentOfFile("Inputs/Day1/input.txt");
 		Position position  = new Position();
 		String[] movements = fileContent.split(", ");
-		
+		    
 		for(String move : movements) {
 			position.rotateToward(move.charAt(0));
 			position.move(Integer.parseInt(move.substring(1)));
@@ -20,13 +18,13 @@ public class SolutionFinder {
 	}
 	
 	public static int solveDay1Task2() {
-		String fileContent 			= FileHandler.getContentOfFile("Inputs/Day1/input.txt");
-		List<Point> visited    		= new ArrayList<Point>();
-		List<Point> moves 			= new ArrayList<Point>();
-		String[] movements 			= fileContent.split(", ");
-		Point found 				= null;
-		Position position 			= new Position();
-		int steps 					= 0;
+		String fileContent          = FileHandler.getContentOfFile("Inputs/Day1/input.txt");
+		List<Point> visited         = new ArrayList<Point>();
+		List<Point> moves           = new ArrayList<Point>();
+		String[] movements          = fileContent.split(", ");
+		Point found                 = null;
+		Position position           = new Position();
+		int steps                   = 0;
 		
 		for(String move : movements) {
 			position.rotateToward(move.charAt(0));
@@ -49,12 +47,22 @@ public class SolutionFinder {
 	
 	public static String solveDay2Task1() {
 		List<String> rows = FileHandler.getEachRowFromFile("Inputs/Day2/input.txt");
-		KeyPad keypad = new KeyPad();
+		IKeyPad keypad = new DefaultKeyPad();
 		String code = "";
 		for(String row : rows) {
 			code += keypad.move(row);
 		}
 		return code;
 	}
+	
+	public static String solveDay2Task2() {
+        List<String> rows = FileHandler.getEachRowFromFile("Inputs/Day2/input.txt");
+        IKeyPad keypad = new AdvancedKeyPad();
+        String code = "";
+        for(String row : rows) {
+            code += keypad.move(row);
+        }
+        return code;
+    }
 
 }

@@ -5,5 +5,6 @@ class AdventOfCode {
 		System.out.println(SolutionFinder.solveDay1Task1());
 		System.out.println(SolutionFinder.solveDay1Task2());
 		System.out.println(SolutionFinder.solveDay2Task1());
+		System.out.println(SolutionFinder.solveDay2Task2());
 	}
 }
