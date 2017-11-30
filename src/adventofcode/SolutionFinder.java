@@ -1,6 +1,5 @@
 package adventofcode;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -116,5 +115,12 @@ public class SolutionFinder {
         return validTriangles;
     }
 
-
+	public static int solveDay4Task1() {
+	    List<String> rows = FileHandler.getEachRowFromFile("Inputs/Day4/input.txt");
+	    RoomDecoder decoder = new RoomDecoder();
+	    for(String row : rows) {
+	        decoder.decode(row);
+	    }
+	    return 1;
+	}
 }

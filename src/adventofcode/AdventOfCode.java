@@ -8,5 +8,6 @@ class AdventOfCode {
 		System.out.println(SolutionFinder.solveDay2Task2());
 		System.out.println(SolutionFinder.solveDay3Task1());
 		System.out.println(SolutionFinder.solveDay3Task2());
+		System.out.println(SolutionFinder.solveDay4Task1());
 	}
 }
