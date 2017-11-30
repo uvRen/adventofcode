@@ -1,7 +1,9 @@
 package adventofcode;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class SolutionFinder {
 	public static int solveDay1Task1() {
@@ -64,5 +66,55 @@ public class SolutionFinder {
         }
         return code;
     }
+	
+	public static int solveDay3Task1() {
+	    List<String> rows = FileHandler.getEachRowFromFile("Inputs/Day3/input.txt");
+	    Triangle triangle = new Triangle();
+	    int validTriangles = 0;
+	    Scanner scanner = null;
+	    for(String row : rows) {
+	        scanner = new Scanner(row);
+	        triangle.updateTriangle(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+	        if(triangle.isValid())
+	            validTriangles++;
+	    }
+	    return validTriangles;
+	}
+	
+	public static int solveDay3Task2() {
+        List<String> rows = FileHandler.getEachRowFromFile("Inputs/Day3/input.txt");
+        Triangle triangle = new Triangle();
+        int validTriangles = 0;
+        Scanner scanner1 = null;
+        Scanner scanner2 = null;
+        Scanner scanner3 = null;
+        String row1 = "";
+        String row2 = "";
+        String row3 = "";
+        
+        for(int i = 0; i < rows.size() - 2; i = i + 3) {
+            row1 = rows.get(i);
+            row2 = rows.get(i + 1);
+            row3 = rows.get(i + 2);
+            
+            scanner1 = new Scanner(row1);
+            scanner2 = new Scanner(row2);
+            scanner3 = new Scanner(row3);
+            
+            triangle.updateTriangle(scanner1.nextInt(), scanner2.nextInt(), scanner3.nextInt());
+            if(triangle.isValid())
+                validTriangles++;
+            
+            triangle.updateTriangle(scanner1.nextInt(), scanner2.nextInt(), scanner3.nextInt());
+            if(triangle.isValid())
+                validTriangles++;
+            
+            triangle.updateTriangle(scanner1.nextInt(), scanner2.nextInt(), scanner3.nextInt());
+            if(triangle.isValid())
+                validTriangles++;
+        }
+        return validTriangles;
+    }
+
 
 }
