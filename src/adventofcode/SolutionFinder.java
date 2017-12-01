@@ -123,4 +123,33 @@ public class SolutionFinder {
 	    }
 	    return 1;
 	}
+	
+	public static int solveDay1Task1_2017() {
+	    String file = FileHandler.getContentOfFile("Inputs/2017/Day1/input.txt");
+	    file += file.charAt(file.length() - 1);
+	    int sum = 0;
+	    for(int i = 0; i < file.length() - 1; i++) {
+	        if(file.charAt(i) == file.charAt(i+1))
+	            sum += Integer.parseInt("" + file.charAt(i));
+	    }
+	    return sum;
+	}
+	
+	public static int solveDay1Task2_2017() {
+        String file = FileHandler.getContentOfFile("Inputs/2017/Day1/input.txt");
+        int length = file.length();
+        int half = file.length() / 2;
+        int sum = 0;
+        int steps = 0;
+        for(int i = 0; i < file.length() - 1; i++) {
+            steps = i + half - 1;
+            if(steps >= length) {
+                steps = steps - length;
+            }
+            if(file.charAt(i) == file.charAt(steps)) {
+                sum += Integer.parseInt("" + file.charAt(steps));
+            }
+        }
+        return sum;
+    }
 }
