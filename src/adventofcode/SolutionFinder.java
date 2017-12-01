@@ -138,11 +138,11 @@ public class SolutionFinder {
 	public static int solveDay1Task2_2017() {
         String file = FileHandler.getContentOfFile("Inputs/2017/Day1/input.txt");
         int length = file.length();
-        int half = file.length() / 2;
+        int half = length / 2;
         int sum = 0;
         int steps = 0;
-        for(int i = 0; i < file.length() - 1; i++) {
-            steps = i + half - 1;
+        for(int i = 0; i < length; i++) {
+            steps = i + half;
             if(steps >= length) {
                 steps = steps - length;
             }
