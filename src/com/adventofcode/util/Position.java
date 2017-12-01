@@ -1,4 +1,4 @@
-package adventofcode;
+package com.adventofcode.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class Position {
 	private Direction current;
 	private Point point;
 	
-	Position() {
+	public Position() {
 		current = Direction.NORTH;
 		point = new Point();
 	}

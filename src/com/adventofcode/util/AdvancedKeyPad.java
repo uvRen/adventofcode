@@ -1,4 +1,4 @@
-package adventofcode;
+package com.adventofcode.util;
 
 public class AdvancedKeyPad implements IKeyPad {
 	private String[][] keypad = {

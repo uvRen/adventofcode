@@ -1,4 +1,4 @@
-package adventofcode;
+package com.adventofcode.soltionfinder;
 
 class AdventOfCode {
 	public static void main(String args[]) {

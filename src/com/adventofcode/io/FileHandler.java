@@ -1,4 +1,4 @@
-package adventofcode;
+package com.adventofcode.io;
 
 import java.io.File;
 import java.io.FileNotFoundException;

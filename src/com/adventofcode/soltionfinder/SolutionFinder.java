@@ -1,8 +1,17 @@
-package adventofcode;
+package com.adventofcode.soltionfinder;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import com.adventofcode.io.FileHandler;
+import com.adventofcode.util.AdvancedKeyPad;
+import com.adventofcode.util.DefaultKeyPad;
+import com.adventofcode.util.IKeyPad;
+import com.adventofcode.util.Point;
+import com.adventofcode.util.Position;
+import com.adventofcode.util.RoomDecoder;
+import com.adventofcode.util.Triangle;
 
 public class SolutionFinder {
 	public static int solveDay1Task1() {
