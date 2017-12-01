@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import com.adventofcode.io.FileHandler;
 import com.adventofcode.util.AdvancedKeyPad;
+import com.adventofcode.util.CircularList;
 import com.adventofcode.util.DefaultKeyPad;
 import com.adventofcode.util.IKeyPad;
 import com.adventofcode.util.Point;
@@ -146,6 +147,8 @@ public class SolutionFinder {
 	
 	public static int solveDay1Task2_2017() {
         String file = FileHandler.getContentOfFile("Inputs/2017/Day1/input.txt");
+        CircularList list = new CircularList();
+        list.convertStringToList(file);
         int length = file.length();
         int half = length / 2;
         int sum = 0;
