@@ -7,10 +7,18 @@ public class CircularList {
     
     private List<String> list;
     private int length;
+    private int offset;
     
     public CircularList() {
         list = new ArrayList<String>();
         length = 0;
+        offset = 0;
+    }
+    
+    public CircularList(int offset) {
+        list = new ArrayList<String>();
+        length = 0;
+        this.offset = offset;
     }
     
     /**
@@ -25,7 +33,11 @@ public class CircularList {
         length = list.size();
     }
     
-    public String getCharAt(int position) {
-        return "";
+    public String getStringAtWithOffset(int position) {
+        return list.get((position + offset) % length);
+    }
+    
+    public String getStringAt(int position) {
+        return list.get(position % length);
     }
 }

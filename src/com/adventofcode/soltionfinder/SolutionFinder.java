@@ -13,6 +13,7 @@ import com.adventofcode.util.Point;
 import com.adventofcode.util.Position;
 import com.adventofcode.util.RoomDecoder;
 import com.adventofcode.util.Triangle;
+import com.adventofcode.util.MathHelper;
 
 public class SolutionFinder {
 	public static int solveDay1Task1() {
@@ -147,20 +148,33 @@ public class SolutionFinder {
 	
 	public static int solveDay1Task2_2017() {
         String file = FileHandler.getContentOfFile("Inputs/2017/Day1/input.txt");
-        CircularList list = new CircularList();
+        CircularList list = new CircularList(file.length() / 2);
         list.convertStringToList(file);
-        int length = file.length();
-        int half = length / 2;
         int sum = 0;
-        int steps = 0;
-        for(int i = 0; i < length; i++) {
-            steps = i + half;
-            if(steps >= length) {
-                steps = steps - length;
+        for(int i = 0; i < file.length(); i++) {
+            if(list.getStringAt(i).equals(list.getStringAtWithOffset(i))) {
+                sum += Integer.parseInt("" + list.getStringAt(i));
             }
-            if(file.charAt(i) == file.charAt(steps)) {
-                sum += Integer.parseInt("" + file.charAt(steps));
-            }
+        }
+        return sum;
+    }
+
+	public static int solveDay2Task1_2017() {
+	    List<String> rows = FileHandler.getEachRowFromFile("Inputs/2017/Day2/input.txt");
+	    int sum = 0;
+	    MathHelper math = new MathHelper();
+	    for(String row : rows) {
+	        sum += (math.getMaxValueFromRow(row) - math.getMinValueFromRow(row));
+	    }
+	    return sum;
+	}
+	
+	public static int solveDay2Task2_2017() {
+        List<String> rows = FileHandler.getEachRowFromFile("Inputs/2017/Day2/input.txt");
+        int sum = 0;
+        MathHelper math = new MathHelper();
+        for(String row : rows) {
+            sum += math.findAndDevideTwoEvenlyNumbers(row);
         }
         return sum;
     }
