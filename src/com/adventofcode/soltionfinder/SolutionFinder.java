@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.adventofcode.io.FileHandler;
+import com.adventofcode.memory.MemoryBank;
 import com.adventofcode.util.AdvancedKeyPad;
 import com.adventofcode.util.CircularList;
 import com.adventofcode.util.DefaultKeyPad;
@@ -13,6 +14,7 @@ import com.adventofcode.util.Point;
 import com.adventofcode.util.Position;
 import com.adventofcode.util.RoomDecoder;
 import com.adventofcode.util.Triangle;
+import com.adventofcode.util.WordCounter;
 import com.adventofcode.util.MathHelper;
 
 public class SolutionFinder {
@@ -178,4 +180,12 @@ public class SolutionFinder {
         }
         return sum;
     }
+	
+	public static int solveDay6Task1_2017() {
+	    String content = FileHandler.getContentOfFile("Inputs/2017/Day6/input.txt");
+	    MemoryBank memory = new MemoryBank();
+	    memory.initializeMemoryBank(content);
+	    int iterations = memory.redistributeMemory();
+	    return iterations;
+	}
 }
