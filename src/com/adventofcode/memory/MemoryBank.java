@@ -13,7 +13,7 @@ public class MemoryBank {
         states = new ArrayList<String>();
     }
     
-    public int redistributeMemory() {
+    public int redistributeMemory(boolean checkForSecondAppearance) {
         int iterations = 0;
         String stateToLookFor = "";
         int found = 0;
@@ -31,12 +31,15 @@ public class MemoryBank {
             
             iterations++;
             if(sameState(getMemoryStates()) && found == 0) {
-                iterations = 0;
+                if(checkForSecondAppearance == false)
+                    break;
+                // Prepare variables to check for second appearance
                 stateToLookFor = getMemoryStates();
                 states.clear();
-                found++;
+                found = 1;
                 skipAdd = true;
-            } else if(states.contains(stateToLookFor) && found == 1) {
+                iterations = 0;
+            } else if(sameState(stateToLookFor) && found == 1) { // When the same state has appeared twice
                 iterations--;
                 break;
             }
@@ -86,10 +89,6 @@ public class MemoryBank {
             state += m.getSize();
         }
         return state;
-    }
-    
-    public void addCurrentStateToList() {
-        states.add(getMemoryStates());
     }
     
     public boolean sameState(String newState) {

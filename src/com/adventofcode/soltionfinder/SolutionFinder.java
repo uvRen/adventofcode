@@ -185,7 +185,15 @@ public class SolutionFinder {
 	    String content = FileHandler.getContentOfFile("Inputs/2017/Day6/input.txt");
 	    MemoryBank memory = new MemoryBank();
 	    memory.initializeMemoryBank(content);
-	    int iterations = memory.redistributeMemory();
+	    int iterations = memory.redistributeMemory(false);
 	    return iterations;
 	}
+	
+	public static int solveDay6Task2_2017() {
+        String content = FileHandler.getContentOfFile("Inputs/2017/Day6/input.txt");
+        MemoryBank memory = new MemoryBank();
+        memory.initializeMemoryBank(content);
+        int iterations = memory.redistributeMemory(true);
+        return iterations;
+    }
 }
