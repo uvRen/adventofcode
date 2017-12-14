@@ -8,6 +8,8 @@ import com.adventofcode.tree.Tree;
 import com.adventofcode.util.CircularList;
 import com.adventofcode.util.ListMover;
 import com.adventofcode.util.MathHelper;
+import com.adventofcode.util.SpiralMemory;
+import com.adventofcode.util.SpiralMemoryMathematical;
 import com.adventofcode.word.WordCounter;
 
 public class SolutionFinder2017 {
@@ -54,6 +56,16 @@ public class SolutionFinder2017 {
             sum += math.findAndDevideTwoEvenlyNumbers(row);
         }
         return sum;
+    }
+	
+	public static int solveDay3Task1() {
+        SpiralMemoryMathematical memory = new SpiralMemoryMathematical();
+        return memory.findNumber(325489);
+    }
+    
+    public static int solveDay3Task2() {
+        SpiralMemory memory = new SpiralMemory();
+        return memory.findNumber(325489);
     }
 	
 	public static int solveDay4Task1() {

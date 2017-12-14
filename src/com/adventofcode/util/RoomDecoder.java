@@ -8,6 +8,7 @@ public class RoomDecoder {
     public int decode(String code) {
         roomNumber = getRoomNumber(code);
         checksum = getChecksum(code);
+        String strippedCode = stripCode(code);
         return 0;
     }
     

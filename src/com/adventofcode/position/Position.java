@@ -3,15 +3,8 @@ package com.adventofcode.position;
 import java.util.ArrayList;
 import java.util.List;
 
-enum Direction {
-	NORTH,
-	EAST,
-	SOUTH,
-	WEST
-}
-
 public class Position {
-	
+    public enum Direction { NORTH, EAST, SOUTH, WEST };
 	private Direction current;
 	private Point point;
 	
@@ -20,10 +13,15 @@ public class Position {
 		point = new Point();
 	}
 	
-	Position(Direction direction) {
+	public Position(Direction direction) {
 		current = direction;
 		point = new Point();
 	}
+	
+	public Position(Direction direction, Point point) {
+        current = direction;
+        this.point = point;
+    }
 	
 	public int getX() {
 		return this.point.getX();
@@ -32,6 +30,14 @@ public class Position {
 	public int getY() {
 		return this.point.getY();
 	}
+	
+	public int getXAbs() {
+	    return Math.abs(this.point.getX());
+	}
+	
+	public int getYAbs() {
+        return Math.abs(this.point.getY());
+    }
 	
 	public Point getCurrentPosition() {
 		return this.point;
@@ -68,6 +74,14 @@ public class Position {
 			moves.add(new Point(this.point.getX(), this.point.getY()));
 		}
 		return moves;
+	}
+	
+	public void setDirection(Direction direction) {
+	    this.current = direction;
+	}
+	
+	public Direction getDirection() {
+	    return this.current;
 	}
 	
 	public void rotateToward(char rotation) {
