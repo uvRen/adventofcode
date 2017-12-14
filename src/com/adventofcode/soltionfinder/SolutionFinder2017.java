@@ -6,6 +6,7 @@ import com.adventofcode.io.FileHandler;
 import com.adventofcode.memory.MemoryBank;
 import com.adventofcode.tree.Tree;
 import com.adventofcode.util.CircularList;
+import com.adventofcode.util.ListMover;
 import com.adventofcode.util.MathHelper;
 import com.adventofcode.word.WordCounter;
 
@@ -76,6 +77,18 @@ public class SolutionFinder2017 {
         }
         return validRows;
 	}
+	
+	public static int solveDay5Task1() {
+	    List<Integer> numbers = FileHandler.getEachRowFromFileAsIntegers("Inputs/2017/Day5/input.txt");
+	    ListMover mover = new ListMover(numbers);
+	    return mover.startStepping(false);
+    }
+	
+	public static int solveDay5Task2() {
+        List<Integer> numbers = FileHandler.getEachRowFromFileAsIntegers("Inputs/2017/Day5/input.txt");
+        ListMover mover = new ListMover(numbers);
+        return mover.startStepping(true);
+    }
 	
 	public static int solveDay6Task1() {
 	    String content = FileHandler.getContentOfFile("Inputs/2017/Day6/input.txt");

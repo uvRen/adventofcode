@@ -54,4 +54,13 @@ public class FileHandler {
 		}
 		return rows;
 	}
+	
+	public static List<Integer> getEachRowFromFileAsIntegers(String path) {
+	    List<Integer> numbers = new ArrayList<Integer>();
+	    String[] content = getContentOfFile(path, true).split(System.lineSeparator());
+	    for(String s : content) {
+            numbers.add(Integer.parseInt(s.trim()));
+        }
+	    return numbers;
+	}
 }
