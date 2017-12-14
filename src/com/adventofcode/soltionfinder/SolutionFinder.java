@@ -183,10 +183,6 @@ public class SolutionFinder {
     }
 	
 	public static int solveDay4Task1_2017() {
-	    WordCounter counter = new WordCounter();
-	    System.out.println(counter.hasRowEqualWords("a ab abc abd abf abj"));
-	    return 0;
-	    /*
 	    List<String> rows = FileHandler.getEachRowFromFile("Inputs/2017/Day4/input.txt");
 	    WordCounter counter = new WordCounter();
 	    int validRows = 0;
@@ -195,7 +191,17 @@ public class SolutionFinder {
 	            validRows++;
 	    }
 	    return validRows;
-	    */
+	}
+	
+	public static int solveDay4Task2_2017() {
+	    List<String> rows = FileHandler.getEachRowFromFile("Inputs/2017/Day4/input.txt");
+	    WordCounter counter = new WordCounter();
+	    int validRows = 0;
+	    for(String row : rows) {
+            if(!counter.hasRowAnagrams(row))
+                validRows++;
+        }
+        return validRows;
 	}
 	
 	public static int solveDay6Task1_2017() {
