@@ -1,4 +1,4 @@
-package com.adventofcode.util;
+package com.adventofcode.word;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.adventofcode.util;
+package com.adventofcode.position;
 
 public class Point {
 	private int x;

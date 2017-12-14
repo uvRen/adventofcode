@@ -1,8 +1,10 @@
-package com.adventofcode.util;
+package com.adventofcode.word;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.adventofcode.util.Pair;
 
 public class Word {
     private String word;
@@ -42,7 +44,7 @@ public class Word {
     
     private int getIndexOfLetter(char c) {
         for(int i = 0; i < letters.size(); i++) {
-            if(letters.get(i).getString().equals(c + ""))
+            if(letters.get(i).getChar().equals(c + ""))
                 return i;
         }
         return -1;
@@ -59,10 +61,10 @@ public class Word {
                 return false;
             }
             for(int i = 0; i < letters.size(); i++) {
-                if(!w.letters.get(i).c.equals(this.letters.get(i).c)) {
+                if(!w.letters.get(i).getChar().equals(this.letters.get(i).getChar())) {
                     return false;
                 }
-                if(w.letters.get(i).count != this.letters.get(i).count) {
+                if(w.letters.get(i).getCount() != this.letters.get(i).getCount()) {
                     return false;
                 }
             }

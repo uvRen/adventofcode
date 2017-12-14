@@ -1,4 +1,4 @@
-package com.adventofcode.util;
+package com.adventofcode.keypad;
 
 public interface IKeyPad {
 	
