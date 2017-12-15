@@ -1,4 +1,4 @@
-package com.adventofcode.util;
+package com.adventofcode.memory;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,13 +4,14 @@ import java.util.List;
 
 import com.adventofcode.io.FileHandler;
 import com.adventofcode.memory.MemoryBank;
+import com.adventofcode.memory.RegisterHandler;
+import com.adventofcode.memory.SpiralMemory;
+import com.adventofcode.memory.SpiralMemoryMathematical;
 import com.adventofcode.tree.Tree;
 import com.adventofcode.tree.TreeNode;
 import com.adventofcode.util.CircularList;
 import com.adventofcode.util.ListMover;
 import com.adventofcode.util.MathHelper;
-import com.adventofcode.util.SpiralMemory;
-import com.adventofcode.util.SpiralMemoryMathematical;
 import com.adventofcode.word.WordCounter;
 
 public class SolutionFinder2017 {
@@ -132,5 +133,23 @@ public class SolutionFinder2017 {
         tree.buildTree(rows);
         TreeNode nodeWithWrongWeight = tree.findUnbalancedNodeFromTop();
         return nodeWithWrongWeight.getWeight() - 5;
+    }
+	
+	public static int solveDay8Task1() {
+	    List<String> rows = FileHandler.getEachRowFromFile("Inputs/2017/Day8/input.txt");
+	    RegisterHandler registerHandler = new RegisterHandler();
+	    for(String row : rows) {
+	        registerHandler.parseInstructions(row);
+	    }
+	    return registerHandler.getLargestRegister();
+	}
+	
+	public static int solveDay8Task2() {
+        List<String> rows = FileHandler.getEachRowFromFile("Inputs/2017/Day8/input.txt");
+        RegisterHandler registerHandler = new RegisterHandler();
+        for(String row : rows) {
+            registerHandler.parseInstructions(row);
+        }
+        return registerHandler.getMaxValueOverTime();
     }
 }
