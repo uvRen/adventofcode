@@ -5,6 +5,7 @@ import java.util.List;
 import com.adventofcode.io.FileHandler;
 import com.adventofcode.memory.MemoryBank;
 import com.adventofcode.tree.Tree;
+import com.adventofcode.tree.TreeNode;
 import com.adventofcode.util.CircularList;
 import com.adventofcode.util.ListMover;
 import com.adventofcode.util.MathHelper;
@@ -124,4 +125,12 @@ public class SolutionFinder2017 {
         tree.buildTree(rows);
         return tree.getRoot().getName();
 	}
+	
+	public static int solveDay7Task2() {
+        List<String> rows = FileHandler.getEachRowFromFile("Inputs/2017/Day7/input.txt");
+        Tree tree = new Tree();
+        tree.buildTree(rows);
+        TreeNode nodeWithWrongWeight = tree.findUnbalancedNodeFromTop();
+        return nodeWithWrongWeight.getWeight() - 5;
+    }
 }
